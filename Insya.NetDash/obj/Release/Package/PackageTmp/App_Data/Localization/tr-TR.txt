@@ -1,0 +1,84 @@
+﻿# Türkçe dil dosyası
+# Versiyon 1.0
+# Çeviri: Yasin Kuyu
+# www.yasinkuyu.net
+# http://www.science.co.il/language/locale-codes.asp
+
+langname		= Türkçe (tr-TR)
+langcode		= 1055
+
+Free			= Boşta
+Used			= Kullanımda
+
+In				= Giriş
+Out				= Çıkış
+
+Reads			= Okuma
+Writes			= Yazma
+
+General			= Genel
+Disk			= Disk
+CPU				= İşlemci
+RAM				= Bellek
+Load			= Açılış
+Users			= Kullanıcılar
+Netstat			= Ağ Bağlantıları
+Network			= Ağ
+Processes		= İşlemler
+Hours			= Saat
+OS				= İşletim Sistemi
+Uptime			= Açılış
+Hostname		= Sunucu Adı
+Server			= Sunucu
+CPUs			= İşlemci(ler)
+GeneralInfo 	= Genel Bilgiler
+MainPage		= Anasayfa
+CPUUsage		= İşlemci Kullanımı
+MemoryUsage		= Bellek Kullanımı
+DiskUsage		= Disk Kullanımı
+LoadAverage		= Açılış Ortalaması
+IPAdresses		= IP Adresleri
+InternetTraffic	= Internet Trafiği
+DiskReadsWrites = Disk Okuma/Yazma
+Online			= Çevrimiçi
+
+LogIn			= Giriş Yap
+LogOut			= Çıkış Yap
+Register		= Kayıt Ol
+Successfullogout= Çıkış işlemi tamamlandı
+CreateNewAccount= Yeni kullanıcı oluştur
+Username		= Kullanıcı adı
+Password		= Parola
+
+Error			= Hata
+ErrorOccurred	= İşlem sırasında bir hata oluştu
+Hello			= Merhaba
+
+User			= Kullanıcı
+Domain			= Domain
+LoggedInFrom	= Giriş Yapan
+
+Count			= SAYI
+LocalIp			= Yerel IP Adresi
+LocalPort		= Yerel Port
+Foreing			= FOREIGN
+
+Pid				= İşlem No (PID)
+Cpu				= İşlemci %
+Mem				= Bellek %
+Start			= Başlat
+Time			= Zaman
+Command			= Komut
+
+Interface		= Arayüz
+Macaddress		= MAC Adresi
+Ipaddress		= IP Adresi
+
+Unavailable		= yok
+
+Filesystem		= Dosya Sistemi
+Size			= Boyut
+Usedj			= Kullanılan
+Avail			= Kullanılabilir
+Use				= Kullanım %
+Mounted			= Ayrılmış

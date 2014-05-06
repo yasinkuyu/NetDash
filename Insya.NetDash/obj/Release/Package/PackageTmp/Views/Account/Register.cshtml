@@ -1,0 +1,27 @@
+﻿@using Insya.NetDash
+@model Insya.NetDash.Models.RegisterModel
+@{
+    ViewBag.Title = Html.Localize("Register").ToHtmlString();
+    Layout = "~/Views/Shared/base_auth.cshtml";
+}
+
+<br /><br />
+<br /><br />
+@using (Html.BeginForm("Register", "Account", new { next = ViewBag.next }, FormMethod.Post, new { @class = "form-signin" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    
+    <hgroup class="title">
+        <h2>@Html.Localize("CreateNewAccount")</h2>
+    </hgroup>
+
+    <fieldset>
+        <legend>Admin Register Form</legend>
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = Html.Localize("Username").ToHtmlString(), autofocus = "" })
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Html.Localize("Password").ToHtmlString() })
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = Html.Localize("Password").ToHtmlString() })
+            <br />
+        <button type="submit" class="btn btn-lrg btn-success btn-block">@Html.Localize("Register")</button>
+    </fieldset>
+}

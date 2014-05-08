@@ -23,8 +23,8 @@ The dashboard is built using only C# libraries available in the main C# distribu
 
 **Login info**
 
-user: admin
-pass: admin123
+	user: admin
+	pass: admin123
 
 ![Screenshot](/http://i59.tinypic.com/wuf1n6.png)
 

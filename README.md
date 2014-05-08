@@ -9,10 +9,11 @@ A small web-based monitoring dashboard for your Windows pc/server writen in C# a
 	The dashboard is built using only C# libraries available in the main C# distribution, trying to create a small list of dependencies without the need of installing many packages or libraries.
 
 **Current dependencies**:
-  - Net Framework 4
-  - C# MVC 
-  - AttributeRouting
-  - SQLite
+
+	- Net Framework 4
+	- C# MVC 
+	- AttributeRouting
+	- SQLite
 
 **Localization**:
 
@@ -21,12 +22,14 @@ A small web-based monitoring dashboard for your Windows pc/server writen in C# a
 	(3) Started to use in their own language
 
 **Login info**
+
 	user: admin
 	pass: admin123
 
 ![Screenshot](/http://i59.tinypic.com/wuf1n6.png)
 
 **Settings**
+
 	NetDash settings
 	The only settings currently available which you can modify are the refresh rates for the different data tables. There are 3 different refresh settings under netdash/App_data/Setting.ini and values are in miliseconds:
 
@@ -50,6 +53,7 @@ A small web-based monitoring dashboard for your Windows pc/server writen in C# a
 
 
 **Remote data retrieval**	
+
 	NetDash remote data retrieval
 	
     **App_Data\Setting.ini**
@@ -84,6 +88,7 @@ A small web-based monitoring dashboard for your Windows pc/server writen in C# a
 	To see the format of the JSON returned datasets or data you can access any of the URLs from your browser ex. http://domain.com/info/uptime/ 
 
 **OS Support**
+
 	NetDash was tested and runs under the following OSs:
 	Windows 2000 NT
 	Windows 2003 Server
@@ -91,9 +96,11 @@ A small web-based monitoring dashboard for your Windows pc/server writen in C# a
 	Windows 2012 Server
 
 **Credits**
+
 	Dashboard Template, Bootstrap, Font Awesome
 
 **LICENSE**
+
 	The MIT License (MIT)
 
 	Copyright (c) 2014 Yasin Kuyu - https://twitter.com/yasinkuyu - https://github.com/yasinkuyu/

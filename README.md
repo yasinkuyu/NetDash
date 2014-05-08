@@ -1,5 +1,5 @@
-NetDash - v1.4.4  [![Follow @hostechs](https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png)](https://twitter.com/yasinkuyu)    [![View Profile](https://dlc1-s.licdn.com/sites/default/files/InBug-30px-R.png)](http://www.linkedin.com/in/yasinkuyu/)
-======
+NetDash v1.4.4
+=======
 
 Small web-based monitoring dashboard for windows in C# and MVC
 
@@ -7,16 +7,17 @@ A small web-based monitoring dashboard for your Windows pc/server writen in C# a
 	The dashboard is built using only C# libraries available in the main C# distribution, trying to create a small list of dependencies without the need of installing many packages or libraries.
 
 Current dependencies:
-	== Net Framework 4
-	== C# MVC 4
-	== AttributeRouting
+  - == Net Framework 4
+  - == C# MVC 4
+  - == AttributeRouting
 
-View Demo
+Login info
 
 	user: admin
 	pass: admin123
 
-
+![NetDash](http://i59.tinypic.com/34rddw1.png)
+ 
 Settings
 	NetDash settings
 	The only settings currently available which you can modify are the refresh rates for the different data tables. There are 3 different refresh settings under netdash/App_data/Setting.ini and values are in miliseconds:
@@ -77,6 +78,7 @@ Credits
 	Dashboard Template, Bootstrap, Font Awesome
 
 Changelog
+
 
 
 

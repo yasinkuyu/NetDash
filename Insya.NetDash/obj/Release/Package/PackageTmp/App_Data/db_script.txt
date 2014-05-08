@@ -1,6 +1,0 @@
-﻿CREATE TABLE [User] (
-	[UserId] INTEGER  NOT NULL PRIMARY KEY,
-	[Username] VARCHAR(50)  NULL,
-	[Password] VARCHAR(50)  NULL,
-	[Role] VARCHAR(50) DEFAULT 'user' NULL
-)

@@ -34,4 +34,3 @@ D:\DEV\PROJELER\Insya.NetDash\Insya.NetDash\Insya.NetDash\bin\System.Web.WebPage
 D:\DEV\PROJELER\Insya.NetDash\Insya.NetDash\Insya.NetDash\bin\WebActivator.pdb
 D:\DEV\PROJELER\Insya.NetDash\Insya.NetDash\Insya.NetDash\obj\Debug\Insya.NetDash.dll
 D:\DEV\PROJELER\Insya.NetDash\Insya.NetDash\Insya.NetDash\obj\Debug\Insya.NetDash.pdb
-D:\DEV\PROJELER\Insya.NetDash\Insya.NetDash\Insya.NetDash\obj\Debug\Insya.NetDash.csprojResolveAssemblyReference.cache

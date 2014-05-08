@@ -1,32 +1,32 @@
-[![NetDashLogo]http://i60.tinypic.com/2r5dthz.png)]
+![NetDash Logo](/http://i60.tinypic.com/2r5dthz.png)
 
 NetDash - v1.4.4  [![Follow @yasinkuyu](https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png)](https://twitter.com/yasinkuyu) [![View Profile](https://dlc1-s.licdn.com/sites/default/files/InBug-30px-R.png)](http://www.linkedin.com/in/yasinkuyu/)
 ======
 
-Small web-based monitoring dashboard for windows in C# and MVC
-
+## Small web-based monitoring dashboard for windows in C and MVC
 A small web-based monitoring dashboard for your Windows pc/server writen in C# and MVC + Chart.js.
+
 	The dashboard is built using only C# libraries available in the main C# distribution, trying to create a small list of dependencies without the need of installing many packages or libraries.
 
-Current dependencies:
+**Current dependencies**:
   - Net Framework 4
-  - C# MVC 4
+  - C# MVC 
   - AttributeRouting
+  - SQLite
 
-Localization:
+**Localization**:
 
 	(1) "App_Data\Localization\en-EN.txt" copy this file and translate the language you want to use.
 	(2) "App_Data\Setting.ini" LANGUAGE line in the file that you want to use the written language. Example: LANGUAGE=en-EN or LANGUAGE=tr-TR
 	(3) Started to use in their own language
 
-Login info
-
+**Login info**
 	user: admin
 	pass: admin123
 
-[![NetDash](http://i59.tinypic.com/wuf1n6.png)]
+![Screenshot](/http://i59.tinypic.com/wuf1n6.png)
 
-Settings
+**Settings**
 	NetDash settings
 	The only settings currently available which you can modify are the refresh rates for the different data tables. There are 3 different refresh settings under netdash/App_data/Setting.ini and values are in miliseconds:
 
@@ -49,8 +49,18 @@ Settings
 	Netstat - TIME_JS_REFRESH_LONG
 
 
-Remote data retrieval
+**Remote data retrieval**	
 	NetDash remote data retrieval
+	
+    **App_Data\Setting.ini**
+        ; Remote or Local server name (Default local name machine name : .)
+        ; Sample remote server SERVERNAME=0.0.0.0
+        SERVERNAME=ipaddress
+        
+        ; Remote server login info (Ony remote server)
+        REMOTE_DOMAIN=domain.com
+        REMOTE_USERNAME=Administrator
+        REMOTE_PASSWORD=password
 
 	NetDash will allow you to retrieve data remotely if needed. This can be useful if you want to store any of the data in a database or another application.
 
@@ -73,22 +83,17 @@ Remote data retrieval
 
 	To see the format of the JSON returned datasets or data you can access any of the URLs from your browser ex. http://domain.com/info/uptime/ 
 
-OS Support
+**OS Support**
 	NetDash was tested and runs under the following OSs:
 	Windows 2000 NT
 	Windows 2003 Server
 	Windows 2008 Server
 	Windows 2012 Server
 
-License
-	MIT
-
-Credits
+**Credits**
 	Dashboard Template, Bootstrap, Font Awesome
 
-
-LICENSE
-
+**LICENSE**
 	The MIT License (MIT)
 
 	Copyright (c) 2014 Yasin Kuyu - https://twitter.com/yasinkuyu - https://github.com/yasinkuyu/

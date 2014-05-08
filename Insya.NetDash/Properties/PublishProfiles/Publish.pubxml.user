@@ -52,7 +52,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2014 22:49:28</publishTime>
     </File>
     <File Include="bin/Insya.NetDash.dll">
-      <publishTime>05/08/2014 10:50:14</publishTime>
+      <publishTime>05/08/2014 12:43:59</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>05/05/2014 17:30:47</publishTime>
@@ -280,7 +280,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2014 17:31:45</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/07/2014 18:23:11</publishTime>
+      <publishTime>05/08/2014 12:43:59</publishTime>
     </File>
     <File Include="x64/SQLite.Interop.dll">
       <publishTime>05/05/2014 22:49:30</publishTime>

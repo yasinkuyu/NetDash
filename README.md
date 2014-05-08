@@ -1,4 +1,5 @@
 ![NetDash Logo](/http://i60.tinypic.com/2r5dthz.png)
+![Logo](//NetDashLogo_mini.png)
 
 NetDash - v1.4.4  [![Follow @yasinkuyu](https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png)](https://twitter.com/yasinkuyu) [![View Profile](https://dlc1-s.licdn.com/sites/default/files/InBug-30px-R.png)](http://www.linkedin.com/in/yasinkuyu/)
 ======

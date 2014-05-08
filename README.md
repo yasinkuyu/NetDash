@@ -1,5 +1,5 @@
-NetDash v1.4.4
-=======
+NetDash - v1.4.4  [![Follow @hostechs](https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png)](https://twitter.com/yasinkuyu)    [![View Profile](https://dlc1-s.licdn.com/sites/default/files/InBug-30px-R.png)](http://www.linkedin.com/in/yasinkuyu/)
+======
 
 Small web-based monitoring dashboard for windows in C# and MVC
 
@@ -13,11 +13,12 @@ Current dependencies:
 
 Login info
 
-	user: admin
-	pass: admin123
+user: admin
+pass: admin123
 
-![NetDash](http://i59.tinypic.com/34rddw1.png)
- 
+Installation
+	Installing NetDash
+
 Settings
 	NetDash settings
 	The only settings currently available which you can modify are the refresh rates for the different data tables. There are 3 different refresh settings under netdash/App_data/Setting.ini and values are in miliseconds:
@@ -78,7 +79,6 @@ Credits
 	Dashboard Template, Bootstrap, Font Awesome
 
 Changelog
-
 
 
 

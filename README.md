@@ -1,4 +1,6 @@
-NetDash - v1.4.4  [![Follow @hostechs](https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png)](https://twitter.com/yasinkuyu)    [![View Profile](https://dlc1-s.licdn.com/sites/default/files/InBug-30px-R.png)](http://www.linkedin.com/in/yasinkuyu/)
+[![NetDashLogo]http://i60.tinypic.com/2r5dthz.png)]
+
+NetDash - v1.4.4  [![Follow @yasinkuyu](https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png)](https://twitter.com/yasinkuyu) [![View Profile](https://dlc1-s.licdn.com/sites/default/files/InBug-30px-R.png)](http://www.linkedin.com/in/yasinkuyu/)
 ======
 
 Small web-based monitoring dashboard for windows in C# and MVC
@@ -7,17 +9,22 @@ A small web-based monitoring dashboard for your Windows pc/server writen in C# a
 	The dashboard is built using only C# libraries available in the main C# distribution, trying to create a small list of dependencies without the need of installing many packages or libraries.
 
 Current dependencies:
-  - == Net Framework 4
-  - == C# MVC 4
-  - == AttributeRouting
+  - Net Framework 4
+  - C# MVC 4
+  - AttributeRouting
+
+Localization:
+
+	(1) "App_Data\Localization\en-EN.txt" copy this file and translate the language you want to use.
+	(2) "App_Data\Setting.ini" LANGUAGE line in the file that you want to use the written language. Example: LANGUAGE=en-EN or LANGUAGE=tr-TR
+	(3) Started to use in their own language
 
 Login info
 
-user: admin
-pass: admin123
+	user: admin
+	pass: admin123
 
-Installation
-	Installing NetDash
+[![NetDash](http://i59.tinypic.com/wuf1n6.png)]
 
 Settings
 	NetDash settings
@@ -68,18 +75,16 @@ Remote data retrieval
 
 OS Support
 	NetDash was tested and runs under the following OSs:
-
-Windows Server
-	Might work under others, but didn't get to test any other OSs just yet.
+	Windows 2000 NT
+	Windows 2003 Server
+	Windows 2008 Server
+	Windows 2012 Server
 
 License
 	MIT
 
 Credits
 	Dashboard Template, Bootstrap, Font Awesome
-
-Changelog
-
 
 
 LICENSE

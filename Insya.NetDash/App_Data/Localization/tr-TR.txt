@@ -1,4 +1,6 @@
-﻿# Türkçe dil dosyası
+﻿# Copyright (c) 2014, Insya Interaktif.
+# All rights reserved.
+# Türkçe dil dosyası
 # Versiyon 1.0
 # Çeviri: Yasin Kuyu
 # www.yasinkuyu.net

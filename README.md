@@ -1,5 +1,5 @@
-NetDash v1.4.4
-=======
+NetDash - v1.4.4  [![Follow @hostechs](https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png)](https://twitter.com/yasinkuyu)    [![View Profile](https://dlc1-s.licdn.com/sites/default/files/InBug-30px-R.png)](http://www.linkedin.com/in/yasinkuyu/)
+======
 
 Small web-based monitoring dashboard for windows in C# and MVC
 
@@ -13,11 +13,9 @@ Current dependencies:
 
 View Demo
 
-user: admin
-pass: admin123
+	user: admin
+	pass: admin123
 
-Installation
-	Installing NetDash
 
 Settings
 	NetDash settings
@@ -79,7 +77,6 @@ Credits
 	Dashboard Template, Bootstrap, Font Awesome
 
 Changelog
-
 
 
 

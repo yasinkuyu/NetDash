@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Copyright (c) 2014, Insya Interaktif.
+// Developer @yasinkuyu
+// All rights reserved.
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -9,17 +13,30 @@ using System.Net.NetworkInformation;
 using System.Web;
 using Insya.NetDash.Models;
 
-namespace Insya.NetDash.NetDash
+namespace Insya.NetDash
 {
     public static class Views
     {
 
         public static dynamic get_platform()
         {
+
+            var connection = new ConnectionOptions
+            {
+                Username = Functions.GetServerUserName(),
+                Password = Functions.GetServerPassword(),
+                //Authority = string.Format("ntlmdomain:{0}", Functions.GetServerDomain())
+            };
+
             dynamic returndata = new ExpandoObject();
 
-            var osQuery = new SelectQuery("Select * from Win32_OperatingSystem");
-            var searcher = new ManagementObjectSearcher(osQuery);
+            var scope = new ManagementScope(Functions.GetServerName());
+
+            if (Functions.GetServerName() != "." || Functions.GetServerName() != "root")
+                scope.Connect();
+
+            var query = new SelectQuery("Select Name, LastBootUpTime from Win32_OperatingSystem");
+            var searcher = new ManagementObjectSearcher(scope, query);
 
             foreach (var x in searcher.Get())
             {
@@ -43,8 +60,9 @@ namespace Insya.NetDash.NetDash
         {
             dynamic returndata = new ExpandoObject();
 
-            var cpuQuery = new SelectQuery("Select Name, NumberOfCores, NumberOfLogicalProcessors from Win32_Processor");
-            var searcher = new ManagementObjectSearcher(cpuQuery);
+            var scope = new ManagementScope(Functions.GetServerName());
+            var query = new SelectQuery("Select Name, NumberOfCores, NumberOfLogicalProcessors from Win32_Processor");
+            var searcher = new ManagementObjectSearcher(scope, query);
 
             foreach (var x in searcher.Get())
             {
@@ -60,8 +78,10 @@ namespace Insya.NetDash.NetDash
         {
             dynamic returndata = new ExpandoObject();
 
-            var cpuQuery = new SelectQuery("Select PercentIdleTime from Win32_PerfFormattedData_PerfOS_Processor");
-            var searcher = new ManagementObjectSearcher(cpuQuery);
+
+            var scope = new ManagementScope(Functions.GetServerName());
+            var query = new SelectQuery("Select PercentIdleTime from Win32_PerfFormattedData_PerfOS_Processor");
+            var searcher = new ManagementObjectSearcher(scope, query);
 
             foreach (var x in searcher.Get())
             {
@@ -72,13 +92,6 @@ namespace Insya.NetDash.NetDash
                 returndata.used = cpuUsed;
                 returndata.free = cpuFree;
             }
-
-            return returndata;
-        }
-
-        public static dynamic get_traffic(string ip)
-        {
-            dynamic returndata = new ExpandoObject();
 
             return returndata;
         }
@@ -111,11 +124,11 @@ namespace Insya.NetDash.NetDash
 
         public static ArrayList get_users()
         {
-            var scope = new ManagementScope(@"\\.\root\CIMV2");
+            var scope = new ManagementScope(Functions.GetServerName());
 
             var users = new ArrayList();
-            var logonQuery = new ObjectQuery("SELECT * FROM Win32_LogonSession"); //Where LogonType=2
-            var session = new ManagementObjectSearcher(scope, logonQuery);
+            var query = new ObjectQuery("SELECT * FROM Win32_LogonSession"); //Where LogonType=2
+            var session = new ManagementObjectSearcher(scope, query);
 
             foreach (var login in session.Get())
             {
@@ -127,13 +140,13 @@ namespace Insya.NetDash.NetDash
 
                 var searcher = new ManagementObjectSearcher(scope, loggedQuery);
 
-                foreach (var user in searcher.Get())
+                foreach (var x in searcher.Get())
                 {
                     var u = new ArrayList();
                     var startTime = ManagementDateTimeConverter.ToDateTime(login["StartTime"].ToString());
 
-                    u.Add(user["Name"]);
-                    u.Add(user["Domain"]);
+                    u.Add(x["Name"]);
+                    u.Add(x["Domain"]);
                     u.Add(startTime.ToString("MMM dd, HH:mm"));
 
                     users.Add(u);
@@ -147,40 +160,42 @@ namespace Insya.NetDash.NetDash
         {
 
             // Processes List
-            var scope = new ManagementScope(@"\\.\root\CIMV2");
             var processes = new ArrayList();
-            var procQuery = new SelectQuery("SELECT CSName, ProcessId, CreationDate,  KernelModeTime, UserModeTime, WorkingSetSize, CommandLine FROM Win32_Process");
-            var searcher = new ManagementObjectSearcher(scope, procQuery);
+
+            var scope = new ManagementScope(Functions.GetServerName());
+            var query = new SelectQuery("SELECT CSName, ProcessId, CreationDate,  KernelModeTime, UserModeTime, WorkingSetSize, CommandLine FROM Win32_Process");
+            var searcher = new ManagementObjectSearcher(scope, query);
 
             var pCommand = "";
             var pStart = "";
             var pCreate = "";
-            foreach (var p in searcher.Get())
+
+            foreach (var x in searcher.Get())
             {
 
                 var pr = new ArrayList();
-                var cpu = (((UInt64)p["KernelModeTime"] + (UInt64)p["UserModeTime"]) / 10000000);
-                var mem = Convert.ToInt64(p["WorkingSetSize"].ToString()) / 1024;
+                var cpu = (((UInt64)x["KernelModeTime"] + (UInt64)x["UserModeTime"]) / 10000000);
+                var mem = Convert.ToInt64(x["WorkingSetSize"].ToString()) / 1024;
 
-                var pUser = p["CSName"].ToString();
-                var pPid = p["ProcessId"].ToString();
+                var pUser = x["CSName"].ToString();
+                var pPid = x["ProcessId"].ToString();
                 var pCpu = cpu.ToString();
                 var pMem = string.Format("{0}", mem);
 
-                if (p["CreationDate"] != null)
+                if (x["CreationDate"] != null)
                 {
-                    var startTime = ManagementDateTimeConverter.ToDateTime(p["CreationDate"].ToString());
+                    var startTime = ManagementDateTimeConverter.ToDateTime(x["CreationDate"].ToString());
                     pStart = startTime.ToString("MMM dd");
                 }
 
-                if (p["CreationDate"] != null)
+                if (x["CreationDate"] != null)
                 {
-                    var startTime = ManagementDateTimeConverter.ToDateTime(p["CreationDate"].ToString());
+                    var startTime = ManagementDateTimeConverter.ToDateTime(x["CreationDate"].ToString());
                     pCreate = startTime.ToString("HH:mm");
                 }
 
-                if (p["CommandLine"] != null)
-                    pCommand = p["CommandLine"].ToString().Split('\\').Last();
+                if (x["CommandLine"] != null)
+                    pCommand = x["CommandLine"].ToString().Split('\\').Last();
 
                 pr.Add(pUser); // User
                 pr.Add(pPid); // Pid
@@ -200,45 +215,67 @@ namespace Insya.NetDash.NetDash
         {
        
             dynamic returndata = new ExpandoObject();
-            
-            ManagementObjectCollection collection;
-            using (var searcher = new ManagementObjectSearcher("root\\CIMV2", "Select BytesReceivedPersec, BytesSentPersec, BytesTotalPersec FROM Win32_PerfFormattedData_Tcpip_NetworkInterface"))
-                collection = searcher.Get();
 
-            var enumerator = collection.GetEnumerator();
-            enumerator.MoveNext();
-            var mo = enumerator.Current;
+            var scope = new ManagementScope(Functions.GetServerName());
+            var query = new SelectQuery("SELECT Name, BytesReceivedPerSec, BytesSentPerSec FROM Win32_PerfRawData_Tcpip_NetworkInterface"); 
+            var searcher = new ManagementObjectSearcher(scope, query);
 
-            var recv = (float)(ulong)mo["BytesReceivedPersec"];
-            var sent = (float)(ulong)mo["BytesSentPersec"];
+            foreach (var x in searcher.Get())
+            {
 
-            returndata.recv = recv;
-            returndata.sent = sent;
+                var name = x["Name"].ToString();
+                var recv = x["BytesReceivedPerSec"];
+                var sent = x["BytesSentPerSec"];
 
-            //if (enumerator.MoveNext()) ;
-            enumerator.MoveNext();
+                returndata.name = name;
+                returndata.recv = recv;
+                returndata.sent = sent;
+
+            }
 
             return returndata;
 
         }
 
+        public static dynamic get_loadaverage()
+        {
+            dynamic returndata = new ExpandoObject();
+
+            var scope = new ManagementScope(Functions.GetServerName());
+            var query = new SelectQuery("Select * From Win32_PerfFormattedData_PerfOS_System");
+            var searcher = new ManagementObjectSearcher(scope, query);
+
+            foreach (var x in searcher.Get())
+            {
+
+                returndata.uptime = x["SystemUpTime"];
+                returndata.procs = x["Processes"];
+                returndata.threads = x["Threads"];
+
+            }
+
+            return returndata;
+        }
 
         public static ArrayList get_ips()
         {
             var datasets = new ArrayList();
-            var search = new ManagementObjectSearcher("root\\CIMV2", "Select Caption, IPAddress, MACAddress From Win32_NetworkAdapterConfiguration WHERE IPEnabled = 'TRUE'");
+
+            var scope = new ManagementScope(Functions.GetServerName());
+            var query = new SelectQuery("Select Caption, IPAddress, MACAddress From Win32_NetworkAdapterConfiguration WHERE IPEnabled = 'TRUE'");
+            var searcher = new ManagementObjectSearcher(scope, query);
             var count = 0; //-> fake adapter name
 
-            foreach (var x in search.Get())
+            foreach (var x in searcher.Get())
             {
 
                 var dataset = new ArrayList();
                 var ips = (string[])x["IPAddress"];
 
-                dataset.Add("eth" + count); //x["Caption"]
-                dataset.Add(ips[0]); //-> IP v4
-                dataset.Add(ips[1]); //-> IP v6
-                dataset.Add(x["MACAddress"]);
+                dataset.Add("eth" + count);   //x["Caption"]
+                dataset.Add(ips[0]);          //-> IP v4
+                dataset.Add(ips[1]);          //-> IP v6
+                dataset.Add(x["MACAddress"]); //-> Mac address
 
                 datasets.Add(dataset);
 
@@ -252,14 +289,15 @@ namespace Insya.NetDash.NetDash
         {
             var disks = new List<Disk>();
 
-            var diskQuery = new SelectQuery("Select FreeSpace,Size,Name,VolumeName from Win32_LogicalDisk where DriveType=3");
-            var searcher = new ManagementObjectSearcher(diskQuery);
+            var scope = new ManagementScope(Functions.GetServerName());
+            var query = new SelectQuery("Select FreeSpace,Size,Name,VolumeName from Win32_LogicalDisk where DriveType=3");
+            var searcher = new ManagementObjectSearcher(scope, query);
 
-            foreach (var d in searcher.Get())
+            foreach (var x in searcher.Get())
             {
 
-                var availableValue = d["FreeSpace"];
-                var totalSizeValue = d["Size"];
+                var availableValue = x["FreeSpace"];
+                var totalSizeValue = x["Size"];
 
                 var total = totalSizeValue == null ? 0 : (ulong)totalSizeValue;
                 var free = availableValue == null ? 0 : (ulong)availableValue;
@@ -272,8 +310,8 @@ namespace Insya.NetDash.NetDash
                 }
 
                 var disk = new Disk(
-                        name: d["Name"].ToString(),
-                        volume: d["VolumeName"].ToString(),
+                        name: x["Name"].ToString(),
+                        volume: x["VolumeName"].ToString(),
                         total: total,
                         used: used,
                         free: free,
@@ -291,8 +329,9 @@ namespace Insya.NetDash.NetDash
         {
             dynamic returndata = new ExpandoObject();
 
-            var uptimeQuery = new SelectQuery("Select DiskReadBytesPersec, DiskWriteBytesPersec from Win32_PerfRawData_PerfDisk_PhysicalDisk");
-            var searcher = new ManagementObjectSearcher(uptimeQuery);
+            var scope = new ManagementScope(Functions.GetServerName());
+            var query = new SelectQuery("Select DiskReadBytesPersec, DiskWriteBytesPersec from Win32_PerfRawData_PerfDisk_PhysicalDisk");
+            var searcher = new ManagementObjectSearcher(scope, query);
 
             foreach (var x in searcher.Get())
             {
@@ -311,9 +350,11 @@ namespace Insya.NetDash.NetDash
         {
             dynamic returndata = new ExpandoObject();
 
-            var search = new ManagementObjectSearcher("root\\CIMV2", "Select TotalVisibleMemorySize, FreePhysicalMemory from Win32_OPeratingSystem");
+            var scope = new ManagementScope(Functions.GetServerName());
+            var query = new SelectQuery("Select TotalVisibleMemorySize, FreePhysicalMemory from Win32_OPeratingSystem");
+            var searcher = new ManagementObjectSearcher(scope, query);
 
-            foreach (var x in search.Get())
+            foreach (var x in searcher.Get())
             {
 
                 var totalMemory = (ulong)x["TotalVisibleMemorySize"];

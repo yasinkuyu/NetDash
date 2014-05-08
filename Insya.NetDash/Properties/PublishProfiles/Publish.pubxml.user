@@ -9,14 +9,32 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <_PublishTargetUrl>D:\DEV\PROJELER\Insya.NetDash\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="App_Data/db_script.txt">
+      <publishTime>05/07/2014 11:34:07</publishTime>
+    </File>
     <File Include="App_Data/Localization/en-EN.txt">
-      <publishTime>05/06/2014 00:39:33</publishTime>
+      <publishTime>05/07/2014 18:07:22</publishTime>
     </File>
     <File Include="App_Data/Localization/tr-TR.txt">
-      <publishTime>05/06/2014 00:40:39</publishTime>
+      <publishTime>05/07/2014 18:07:27</publishTime>
     </File>
     <File Include="App_Data/netdash.db">
+      <publishTime>05/07/2014 23:10:34</publishTime>
+    </File>
+    <File Include="App_Data/Setting.ini">
+      <publishTime>05/08/2014 10:47:54</publishTime>
+    </File>
+    <File Include="bin/App_Data/Localization/en-EN.txt">
+      <publishTime>05/07/2014 11:12:51</publishTime>
+    </File>
+    <File Include="bin/App_Data/Localization/tr-TR.txt">
+      <publishTime>05/07/2014 11:09:09</publishTime>
+    </File>
+    <File Include="bin/App_Data/netdash.db">
       <publishTime>05/05/2014 17:52:58</publishTime>
+    </File>
+    <File Include="bin/App_Data/Setting.ini">
+      <publishTime>05/06/2014 18:27:47</publishTime>
     </File>
     <File Include="bin/AttributeRouting.dll">
       <publishTime>05/05/2014 17:37:54</publishTime>
@@ -34,7 +52,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2014 22:49:28</publishTime>
     </File>
     <File Include="bin/Insya.NetDash.dll">
-      <publishTime>05/06/2014 14:25:24</publishTime>
+      <publishTime>05/08/2014 10:50:14</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>05/05/2014 17:30:47</publishTime>
@@ -88,13 +106,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2014 17:31:42</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>05/06/2014 00:08:24</publishTime>
+      <publishTime>05/07/2014 11:30:13</publishTime>
     </File>
     <File Include="Readme.md">
       <publishTime>05/06/2014 14:24:42</publishTime>
     </File>
     <File Include="requirements.txt">
       <publishTime>05/05/2014 18:24:32</publishTime>
+    </File>
+    <File Include="start.bat">
+      <publishTime>05/05/2014 23:19:55</publishTime>
     </File>
     <File Include="static/css/bootstrap-responsive.min.css">
       <publishTime>05/05/2014 17:31:43</publishTime>
@@ -244,7 +265,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2014 22:28:30</publishTime>
     </File>
     <File Include="Views/Shared/main.cshtml">
-      <publishTime>05/06/2014 00:39:13</publishTime>
+      <publishTime>05/07/2014 11:06:53</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>05/05/2014 23:18:46</publishTime>
@@ -259,7 +280,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2014 17:31:45</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/06/2014 14:22:15</publishTime>
+      <publishTime>05/07/2014 18:23:11</publishTime>
     </File>
     <File Include="x64/SQLite.Interop.dll">
       <publishTime>05/05/2014 22:49:30</publishTime>

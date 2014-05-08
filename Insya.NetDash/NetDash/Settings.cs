@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Copyright (c) 2014, Insya Interaktif.
+// Developer @yasinkuyu
+// All rights reserved.
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;

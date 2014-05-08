@@ -1,4 +1,6 @@
-﻿# English language file
+﻿# Copyright (c) 2014, Insya Interaktif.
+# All rights reserved.
+# English language file
 # Versiyon 1.0
 # Translate: Yasin Kuyu
 # www.yasinkuyu.net
@@ -78,7 +80,7 @@ Unavailable		= unavailable
 
 Filesystem		= FILESYSTEM
 Size			= SIZE
-Used			= USED
+Usedj			= USED
 Avail			= AVAIL
 Use				= USE %
 Mounted			= MOUNTED

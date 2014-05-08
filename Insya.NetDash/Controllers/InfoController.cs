@@ -1,9 +1,11 @@
-﻿using System;
+﻿// Copyright (c) 2014, Insya Interaktif.
+// Developer @yasinkuyu
+// All rights reserved.
+
+using System;
 using System.Collections;
-using System.Diagnostics;
 using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
-using Insya.NetDash.NetDash;
 
 namespace Insya.NetDash.Controllers
 {
@@ -148,7 +150,7 @@ namespace Insya.NetDash.Controllers
             }
 
 
-            string[] labels = { "", "", "", "", "", "", "", "", "", "", "" };
+            var labels = new[] { "", "", "", "", "", "", "", "", "", "", };
 
             var datasets = new[] { 
                 new { 
@@ -176,7 +178,7 @@ namespace Insya.NetDash.Controllers
         public ActionResult GetMemory()
         {
 
-            string[] labels = { "", "", "", "", "", "", "", "", "", "" };
+            var labels = new[] { "", "", "", "", "", "", "", "", "", "", };
 
             var datasetsFree = new ArrayList();
             var datasetsUsed = new ArrayList();
@@ -261,47 +263,43 @@ namespace Insya.NetDash.Controllers
         [GET("info/loadaverage")]
         public ActionResult GetLoadAverage()
         {
+            
+            var labels = new[] { "", "", "", "", "", "", "", "", "", "", };
 
-            TimeSpan upTime;
-            using (var pc = new PerformanceCounter("System", "System Up Time"))
+            var datasetLoad = new ArrayList();
+            var loadlist = Settings.GetList("loadaverage");
+
+            var loadaverage = Views.get_loadaverage();
+
+            if (loadlist.Count == 0)
             {
-                pc.NextValue();
-                upTime = TimeSpan.FromSeconds(pc.NextValue());
+                datasetLoad.Add(0);
+                Settings.Set("loadaverage", loadaverage.uptime);
             }
+            else
+            {
 
-            var labels = new[] { 
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-            };
+                if (loadlist.Count > 10)
+                {
+                    loadlist.RemoveAt(0);
 
-            var random = new Random();
+                    Settings.Set("loadaverage", string.Join(" ", loadlist));
+                }
+                else
+                {
+                    Settings.Set("loadaverage", string.Format("{0} {1}", string.Join(" ", loadlist), loadaverage.uptime));
+                }
 
-            var data2 = new[] { 
-                random.Next(0, 1),
-                random.Next(0, 1),
-                random.Next(0, 2),
-                random.Next(0, 1),
-                random.Next(0, 2),
-                random.Next(0, 2),
-                random.Next(0, 2),
-                random.Next(0, 1),
-                1.1,
-                random.Next(0, 2),
-            };
+                foreach (var item in loadlist)
+                    datasetLoad.Add(Convert.ToDouble(item));
 
+            }
+ 
             var datasets = new[] { 
                 new { 
                     pointColor = "rgba(151,187,205,1)", 
                     strokeColor = "rgba(151,187,205,1)",
-                    data = data2,
+                    data = datasetLoad,
                     fillColor = "rgba(151,187,205,0.5)",
                     pointStrokeColor = "#fff",
 
@@ -315,7 +313,7 @@ namespace Insya.NetDash.Controllers
         public ActionResult GetTraffic()
         {
 
-            string[] labels = { "", "", "", "", "", "", "", "", "", "", "" };
+            var labels = new[] {"KBps", "KBps", "KBps", "KBps", "KBps", "KBps", "KBps", "KBps", "KBps", "KBps"};
             
             var datasetRecv = new ArrayList();
             var datasetSent = new ArrayList();

@@ -1,9 +1,16 @@
-﻿using System;
+﻿// Copyright (c) 2014, Insya Interaktif.
+// Developer @yasinkuyu
+// All rights reserved.
+
+using System;
 using System.Data.SQLite;
 using Insya.NetDash.Models;
 
-namespace Insya.NetDash.NetDash
+namespace Insya.NetDash
 {
+    /// <summary>
+    /// Database connection class
+    /// </summary>
     public class DataBaseConnection : IDisposable
     {
         public SQLiteConnection ConnectionSqLite;
@@ -25,7 +32,11 @@ namespace Insya.NetDash.NetDash
     public static class SqLiteDatabase
     {
 
-
+        /// <summary>
+        /// Get customer where username
+        /// </summary>
+        /// <param name="username">string</param>
+        /// <returns></returns>
         public static User GetCustomer(string username)
         {
             var user = new User();
@@ -53,6 +64,12 @@ namespace Insya.NetDash.NetDash
             return new User();
         }
 
+        /// <summary>
+        /// Login autorize
+        /// </summary>
+        /// <param name="username">string</param>
+        /// <param name="password">string</param>
+        /// <returns></returns>
         public static bool Authenticate(string username, string password)
         {
             var result = "";
@@ -74,6 +91,11 @@ namespace Insya.NetDash.NetDash
             return result == "1";
         }
 
+        /// <summary>
+        /// Register new user
+        /// </summary>
+        /// <param name="username">string</param>
+        /// <param name="password">string</param>
         public static void Register(string username, string password)
         {
             using (var connection = new DataBaseConnection())

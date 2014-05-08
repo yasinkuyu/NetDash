@@ -1,4 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿// Copyright (c) 2014, Insya Interaktif.
+// Developer @yasinkuyu
+// All rights reserved.
+
+using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
 namespace Insya.NetDash.Models

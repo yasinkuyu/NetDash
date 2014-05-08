@@ -1,3 +1,6 @@
+// Copyright (c) 2014, Insya Interaktif.
+// All rights reserved.
+
 using System.Web.Routing;
 using AttributeRouting.Web.Mvc;
 

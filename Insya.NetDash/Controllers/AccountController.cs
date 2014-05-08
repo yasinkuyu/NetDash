@@ -1,8 +1,12 @@
-﻿using System;
+﻿// Copyright (c) 2014, Insya Interaktif.
+// Developer @yasinkuyu
+// All rights reserved.
+
+using System;
 using System.Web.Mvc;
 using System.Web.Security;
 using Insya.NetDash.Models;
-using Insya.NetDash.NetDash;
+using Insya.NetDash;
 
 namespace Insya.NetDash.Controllers
 {

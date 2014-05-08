@@ -21,7 +21,7 @@
     <div class="navbar navbar-fixed-top" style="">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="/">NetDash v @Settings.Get("VERSION")</a>
+                <a class="brand" href="/">NetDash v @Html.Setting("VERSION")</a>
                 <ul class="btn btn-mini">
                     @if (Request.IsAuthenticated)
                     {
@@ -189,16 +189,16 @@
         }
 
         $(function() {
-            window.setInterval('dashboard.getProc()', @Settings.Get("TIME_JS_REFRESH_LONG"));
-            window.setInterval('memory_usage()', @Settings.Get("TIME_JS_REFRESH"));
-            window.setInterval('load_average()', @Settings.Get("TIME_JS_REFRESH"));
-            window.setInterval('cpuu_usage()', @Settings.Get("TIME_JS_REFRESH"));
-            window.setInterval('traffic_usage()', @Settings.Get("TIME_JS_REFRESH_NET"));
-            window.setInterval('disk_io()',@Settings.Get("TIME_JS_REFRESH_NET"));
-            window.setInterval('dashboard.getUptime()', @Settings.Get("TIME_JS_REFRESH_LONG"));
-            window.setInterval('dashboard.getDisk()', @Settings.Get("TIME_JS_REFRESH_LONG"));
-            window.setInterval('dashboard.getUsers()', @Settings.Get("TIME_JS_REFRESH_LONG"));
-            window.setInterval('dashboard.getNetstat()', @Settings.Get("TIME_JS_REFRESH_LONG"));
+            window.setInterval('dashboard.getProc()', @Html.Setting("TIME_JS_REFRESH_LONG"));
+            window.setInterval('memory_usage()', @Html.Setting("TIME_JS_REFRESH"));
+            window.setInterval('load_average()', @Html.Setting("TIME_JS_REFRESH"));
+            window.setInterval('cpuu_usage()', @Html.Setting("TIME_JS_REFRESH"));
+            window.setInterval('traffic_usage()', @Html.Setting("TIME_JS_REFRESH_NET"));
+            window.setInterval('disk_io()',@Html.Setting("TIME_JS_REFRESH_NET"));
+            window.setInterval('dashboard.getUptime()', @Html.Setting("TIME_JS_REFRESH_LONG"));
+            window.setInterval('dashboard.getDisk()', @Html.Setting("TIME_JS_REFRESH_LONG"));
+            window.setInterval('dashboard.getUsers()', @Html.Setting("TIME_JS_REFRESH_LONG"));
+            window.setInterval('dashboard.getNetstat()', @Html.Setting("TIME_JS_REFRESH_LONG"));
         });
 
         $(function pageLoad() {

@@ -1,8 +1,10 @@
-﻿using System;
+﻿// Copyright (c) 2014, Insya Interaktif.
+// Developer @yasinkuyu
+// All rights reserved.
+
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
@@ -12,20 +14,36 @@ namespace Insya.NetDash
     public static class HtmlHelperExtensions
     {
         /// <summary>
-        /// Insya localization class
+        /// Localization html helper
         /// </summary>
-        /// <param name="helper"></param>
-        /// <param name="name"></param>
+        /// <param name="helper">object</param>
+        /// <param name="name">string</param>
         /// <returns></returns>
         public static MvcHtmlString Localize(this HtmlHelper helper, string name)
         {
             return new MvcHtmlString(Localization.Get(name));
         }
+
+        /// <summary>
+        /// Setting file html helper
+        /// </summary>
+        /// <param name="helper">object</param>
+        /// <param name="name">string</param>
+        /// <returns></returns>
+         public static MvcHtmlString Setting(this HtmlHelper helper, string name)
+        {
+            return new MvcHtmlString(Settings.Get(name));
+        }
+        
     }
 
     public static class Localization
     {
-        
+        /// <summary>
+        /// Localization txt get item
+        /// </summary>
+        /// <param name="item">string</param>
+        /// <returns></returns>
         public static string Get(string item)
         {
             try

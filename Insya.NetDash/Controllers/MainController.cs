@@ -1,4 +1,8 @@
-﻿using System.Web.Mvc;
+﻿// Copyright (c) 2014, Insya Interaktif.
+// Developer @yasinkuyu
+// All rights reserved.
+
+using System.Web.Mvc;
 
 namespace Insya.NetDash.Controllers
 {
@@ -21,5 +25,10 @@ namespace Insya.NetDash.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult Version()
+        {
+            return Content(Functions.CurrentVersion);
+        }
     }
 }

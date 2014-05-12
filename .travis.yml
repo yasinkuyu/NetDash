@@ -1,10 +1,16 @@
 ## Travis CI Integration
 
+# Source language (using C since .NET and C# are not supported yet)
 language: c
 
-install:
-  - sudo apt-get install mono-devel mono-gmcs nunit-console
-  
-script:
-  - xbuild Insya.NetDash.sln
-  #- nunit-console Insya.NetDash.Tests/Insya.NetDash.Tests.csproj
+# Install dependencies needed to compile .NET and C#
+install: sudo apt-get install mono-devel mono-gmcs
+
+# Run the XBuild project file
+script: xbuild Insya.NetDash/Insya.NetDash.csproj /p:Configuration=Release
+
+# Environmental system variables
+env:
+  global:
+    # Make the log output cleaner
+    - TERM=dumb

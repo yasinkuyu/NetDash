@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insya.NetDash", "Insya.NetDash\Insya.NetDash.csproj", "{D4B9A06E-CD91-495E-8784-11D34036C878}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insya.NetDash.Tests", "Insya.NetDash.Tests\Insya.NetDash.Tests.csproj", "{0C38B68E-9FA3-4B43-A5D2-88ADC7388BC8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insya.NetDashTests", "Insya.NetDashTests\Insya.NetDashTests.csproj", "{BEEB314C-CD42-44EC-B7B0-23DED6E21CA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{D4B9A06E-CD91-495E-8784-11D34036C878}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B9A06E-CD91-495E-8784-11D34036C878}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B9A06E-CD91-495E-8784-11D34036C878}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C38B68E-9FA3-4B43-A5D2-88ADC7388BC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C38B68E-9FA3-4B43-A5D2-88ADC7388BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C38B68E-9FA3-4B43-A5D2-88ADC7388BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C38B68E-9FA3-4B43-A5D2-88ADC7388BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEEB314C-CD42-44EC-B7B0-23DED6E21CA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEEB314C-CD42-44EC-B7B0-23DED6E21CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEEB314C-CD42-44EC-B7B0-23DED6E21CA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEEB314C-CD42-44EC-B7B0-23DED6E21CA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

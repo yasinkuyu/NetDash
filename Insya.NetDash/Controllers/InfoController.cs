@@ -347,11 +347,17 @@ namespace Insya.NetDash.Controllers
                     Settings.Set("traffic_sent", string.Format("{0} {1}", string.Join(" ", trafficSent), traffic.sent));
                 }
 
-                foreach (var item in trafficRevc)
-                    datasetRecv.Add(Convert.ToDouble(item));
+                foreach (var item in trafficRevc){
+                    if (!String.IsNullOrEmpty(item)){
+                        datasetRecv.Add(Convert.ToDouble(item));
+                    }
+                }
 
-                foreach (var item in trafficSent)
-                    datasetSent.Add(Convert.ToDouble(item));
+                foreach (var item in trafficSent){
+                    if (!String.IsNullOrEmpty(item)){
+                        datasetSent.Add(Convert.ToDouble(item));
+                    }
+                }
                  
             }
             

@@ -2,7 +2,7 @@
 
 NetDash - v1.4.4 
 ======
-twitter.com/yasinkuyu
+[@yasinkuyu](https://twitter.com/yasinkuyu)
 
 Small web-based monitoring dashboard for windows in C and MVC
 A small web-based monitoring dashboard for your Windows pc/server writen in C# and MVC + Chart.js.

@@ -1,4 +1,4 @@
-![NetDash Logo](http://i60.tinypic.com/2r5dthz.png)
+![NetDash Logo](https://github.com/yasinkuyu/NetDash/blob/master/netdash1.png)
 
 NetDash - v1.4.4 
 ======
@@ -27,7 +27,7 @@ The dashboard is built using only C# libraries available in the main C# distribu
 	user: admin
 	pass: admin123
 
-![NetDash](http://i59.tinypic.com/wuf1n6.png)
+![NetDash](https://github.com/yasinkuyu/NetDash/blob/master/netdash-700x349.png)
 
 **NetDash Settings**
 

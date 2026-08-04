@@ -53,24 +53,51 @@ The tables and the refresh settings are as follows:
 * Processes - TIME_JS_REFRESH_LONG
 * Netstat - TIME_JS_REFRESH_LONG
 
-**Remote data retrieval**	
+## Remote Data Retrieval
 
-NetDash remote data retrieval
-	
-**App_Data\Setting.ini**
+NetDash supports collecting system metrics from a remote Windows machine.
 
-	; Remote or Local server name (Default local name machine name : .)
-	; Sample remote server SERVERNAME=0.0.0.0
-	SERVERNAME=ipaddress
-	        
-	; Remote server login info (Ony remote server)
-	
-	REMOTE_DOMAIN=domain.com
-	REMOTE_USERNAME=Administrator
-	REMOTE_PASSWORD=password
+Configure the remote connection in `App_Data/Setting.ini`.
 
-NetDash will allow you to retrieve data remotely if needed. This can be useful if you want to store any of the data in a database or another application.
+### Example
 
+```ini
+; Remote computer hostname or IP address
+SERVERNAME=192.168.1.100
+
+; Windows domain name or WORKGROUP
+REMOTE_DOMAIN=WORKGROUP
+
+; Windows account on the remote machine
+REMOTE_USERNAME=Administrator
+
+; Password of the Windows account
+REMOTE_PASSWORD=YourWindowsPassword
+```
+
+### Configuration
+
+| Setting | Description |
+|---------|-------------|
+| SERVERNAME | Hostname or IP address of the Windows machine to monitor. Use `.` to monitor the local machine. |
+| REMOTE_DOMAIN | Windows Domain name or `WORKGROUP` if the machine is not joined to a domain. |
+| REMOTE_USERNAME | Windows user account on the target machine. |
+| REMOTE_PASSWORD | Password of the Windows user account. |
+
+> **Note**
+>
+> `REMOTE_USERNAME` and `REMOTE_PASSWORD` are **Windows credentials of the target machine**, **not** the NetDash dashboard login (`admin/admin123`).
+
+### Requirements
+
+Before enabling remote monitoring, ensure that:
+
+- The remote Windows machine is reachable over the network.
+- WMI (Windows Management Instrumentation) is enabled.
+- Windows Firewall allows WMI/RPC traffic.
+- The supplied Windows account has permission to access Performance Counters and WMI on the remote machine.
+
+Once configured correctly, NetDash can retrieve metrics such as CPU, Memory, Disk Usage, Network Traffic, Processes, and other system information from the remote computer.
 - /info/uptime/				- Uptime
 - /info/platform/hostname/		- Hostname
 - /info/platform/osname/		- OS Name

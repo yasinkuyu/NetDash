@@ -1,10 +1,12 @@
+
+
 ![NetDash Logo](https://github.com/yasinkuyu/NetDash/blob/master/netdash1.png)
 
 NetDash - v1.4.4 
 ======
 [@yasinkuyu](https://twitter.com/yasinkuyu)
 
-Small web-based monitoring dashboard for windows in C and MVC
+Small web-based monitoring dashboard for windows in C# and MVC
 A small web-based monitoring dashboard for your Windows pc/server writen in C# and MVC + Chart.js.
 
 The dashboard is built using only C# libraries available in the main C# distribution, trying to create a small list of dependencies without the need of installing many packages or libraries.
